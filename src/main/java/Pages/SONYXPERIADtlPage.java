@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SONYXPERIADtlPage {
     private WebDriver driver;
+
     private By price = By.className("price");
 
     public SONYXPERIADtlPage(WebDriver userDriver){

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class CartPage {
     private WebDriver driver;
+
     private By quantityTxtBox = By.cssSelector("[title=\"Qty\"]");
     private By updateBtn = By.cssSelector("[title=\"Update\"]");
     private By quantityError = By.cssSelector(".item-msg.error");

@@ -10,14 +10,17 @@ import java.util.stream.Collectors;
 
 public class MobilePage {
     private WebDriver driver;
+
     private By pageTitle = By.tagName("h1");
     private By sortBy = By.cssSelector("select[title=\"Sort By\"]");
     private By product = By.cssSelector("[class=\"product-name\"]");
     private By SONYXPERIA = By.id("product-collection-image-1");
     private By IPhone = By.id("product-collection-image-2");
     private By SamsungGalaxy = By.id("product-collection-image-3");
+    private By compareBtn = By.cssSelector("button[title=\"Compare\"]");
     private By xpathforPrice = By.xpath("../../div/div[@class=\"price-box\"]");
     private By xpathforAddtoCart = By.xpath("../../div/div[@class=\"actions\"]/button");
+    private By xpathforAddtoCmpr = By.xpath("../../div/div[@class=\"actions\"]/ul/li[position()=2]/a[@class=\"link-compare\"]");
 
     private WebElement productElement;
 
@@ -94,6 +97,41 @@ public class MobilePage {
 
         return new CartPage(driver);
     }
+
+
+    public void addProductToCompare(String productName){
+        switch (productName.toLowerCase()){
+            case "sony xperia":
+                productElement = driver.findElement(SONYXPERIA);
+                break;
+
+            case "iphone":
+                productElement = driver.findElement(IPhone);
+                break;
+
+            case "samsung galaxy":
+                productElement = driver.findElement(SamsungGalaxy);
+                break;
+
+        }
+
+        productElement.findElement(xpathforAddtoCmpr).click();
+    }
+
+
+    public CmprProductsPage clickCmprBtnandSwitch(){
+        driver.findElement(compareBtn).click();
+        var windowHandles = driver.getWindowHandles();
+
+        for(String windowHandle : windowHandles){
+            driver.switchTo().window(windowHandle);
+        }
+
+        return new CmprProductsPage(driver);
+    }
+
+
+
 
 
 

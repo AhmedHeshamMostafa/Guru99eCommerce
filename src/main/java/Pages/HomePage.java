@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     private WebDriver driver;
+
     By title = By.tagName("h2");
     By mobile = By.xpath("//a[contains(text(),'Mobile')]");
 
