@@ -11,6 +11,7 @@ public class CartPage {
     private By quantityError = By.cssSelector(".item-msg.error");
     private By emptyCartLink = By.id("empty_cart_button");
     private By pageTitle = By.className("page-title");
+    private By proceedtoCheckoutBtn = By.cssSelector("[title=\"Proceed to Checkout\"]");
 
     public CartPage(WebDriver userDriver){
         this.driver = userDriver;
@@ -31,6 +32,11 @@ public class CartPage {
 
     public String getPageTitle(){
         return driver.findElement(pageTitle).getText();
+    }
+
+    public CheckoutPage clickProceedtoCheckoutBtn(){
+        driver.findElement(proceedtoCheckoutBtn).click();
+        return new CheckoutPage(driver);
     }
 
 

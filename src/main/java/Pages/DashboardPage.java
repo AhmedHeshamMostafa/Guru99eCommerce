@@ -9,6 +9,7 @@ public class DashboardPage {
     By title = By.tagName("h1");
     By successMsg = By.className("success-msg");
     By TVMenu = By.linkText("TV");
+    By myWishlistLink = By.xpath("//*[contains(text(), \"My Wishlist\") and not(@title)]");
 
     public DashboardPage(WebDriver userDriver){
         this.driver = userDriver;
@@ -23,9 +24,16 @@ public class DashboardPage {
         return driver.findElement(successMsg).getText();
     }
 
+
     public TVPage clickTVLink(){
         driver.findElement(TVMenu).click();
         return new TVPage(driver);
+    }
+
+
+    public WishlistPage clickMyWishlistLink(){
+        driver.findElement(myWishlistLink).click();
+        return new WishlistPage(driver);
     }
 
 

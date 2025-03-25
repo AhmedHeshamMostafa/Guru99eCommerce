@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 
-/* TC4 : Verify you can create account and can share wishlist using email */
+/* TC5 : Verify you can create account and can share wishlist using email */
 public class TC5_CreateAccandShare extends BaseTests {
     @Test
     public void testCreateAccandShareWishlist(){
@@ -14,7 +14,7 @@ public class TC5_CreateAccandShare extends BaseTests {
         /* Click on 'CREATE AN ACCOUNT' button */
         var createAcc = myAcc.clickCreateAccBtn();
         /* Fill new account information */
-        String[] userData = {"Ahmed", "Hesham", "Hany", "ahmed.hesham.mostafa30@gmail.com", "93827155aa", "93827155aa"};
+        String[] userData = {"Ahmed", "Hesham", "Hany", "ahmed.hesham.mostafa79@gmail.com", "93827155aa", "93827155aa"};
         createAcc.fillUserInfo(userData);
         /* Click on 'REGISTER' button */
         var dashboard = createAcc.clickRegisterBtn();
