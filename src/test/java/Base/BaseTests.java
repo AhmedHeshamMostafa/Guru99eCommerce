@@ -20,9 +20,9 @@ public class BaseTests {
 
     @BeforeClass
     public void testClassSetUp(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         home = testMethodSetUp();
         windowMgr = new WindowManager(driver);
     }
