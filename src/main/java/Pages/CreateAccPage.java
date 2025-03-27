@@ -40,9 +40,9 @@ public class CreateAccPage {
     }
 
 
-    public DashboardPage clickRegisterBtn(){
+    public MyDashboardPage clickRegisterBtn(){
         driver.findElement(registerBtn).click();
-        return new DashboardPage(driver);
+        return new MyDashboardPage(driver);
     }
 
 

@@ -13,7 +13,7 @@ public class TC6_PurchaseProduct extends BaseTests {
         /* Click on 'MY ACCOUNT' link */
         var myAcc = home.clickMyAccLink();
         /* Enter registered account data */
-        String[] accData = {"ahmed.hesham.mostafa82@gmail.com", "93827155aa"};
+        String[] accData = {"ahmed.hesham.mostafa91@gmail.com", "93827155aa"};
         myAcc.enterRegisteredAcc(accData);
         /* Click on 'LOGIN' button */
         var myDashboard = myAcc.clickLoginBtn();

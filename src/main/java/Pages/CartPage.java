@@ -12,12 +12,15 @@ public class CartPage {
     private By emptyCartLink = By.id("empty_cart_button");
     private By pageTitle = By.className("page-title");
     private By proceedtoCheckoutBtn = By.cssSelector("[title=\"Proceed to Checkout\"]");
+    private By oneProductPrice = By.cssSelector(".product-cart-price .cart-price");
+    private By grandTotal = By.cssSelector("strong .price");
 
     public CartPage(WebDriver userDriver){
         this.driver = userDriver;
     }
 
     public void addQuantityandUpdate(int quantity){
+        driver.findElement(quantityTxtBox).clear();
         driver.findElement(quantityTxtBox).sendKeys(String.valueOf(quantity));
         driver.findElement(updateBtn).click();
     }
@@ -37,6 +40,15 @@ public class CartPage {
     public CheckoutPage clickProceedtoCheckoutBtn(){
         driver.findElement(proceedtoCheckoutBtn).click();
         return new CheckoutPage(driver);
+    }
+
+    public String getOneProductPrice(){
+        return driver.findElement(oneProductPrice).getText();
+    }
+
+
+    public String getGrandTotal(){
+        return driver.findElement(grandTotal).getText();
     }
 
 

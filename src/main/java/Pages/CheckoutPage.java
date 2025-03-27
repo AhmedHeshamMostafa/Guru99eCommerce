@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -103,6 +104,16 @@ public class CheckoutPage {
 //        JavascriptExecutor js = (JavascriptExecutor)driver;
 //        js.executeScript("window.scrollTo(0, 0);");
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+//        wait.until(ExpectedConditions.presenceOfElementLocated(ship_firstNameTxtBx));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ship_firstNameTxtBx));
+
+        //while(!driver.findElement(ship_firstNameTxtBx).isEnabled());
+
+
+        driver.findElement(ship_firstNameTxtBx).click();
+
         driver.findElement(ship_firstNameTxtBx).sendKeys(shippingInfo[0]);
         driver.findElement(ship_lastNameTxtBx).sendKeys(shippingInfo[1]);
         driver.findElement(ship_addressTxtBx).sendKeys(shippingInfo[2]);
@@ -131,19 +142,27 @@ public class CheckoutPage {
 //        js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(continueBtn));
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 //        wait.until(ExpectedConditions.elementToBeClickable(continueBtnAftBill));
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.elementToBeClickable(continueBtnAftBillInfo));
         driver.findElement(continueBtnAftBillInfo).click();
     }
 
     public void clickContinueBtnAftShipInfo(){
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.elementToBeClickable(continueBtnAftShipInfo));
         driver.findElement(continueBtnAftShipInfo).click();
     }
 
     public void clickContinueBtnAftShipMethod(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(continueBtnShip));
         driver.findElement(continueBtnShip).click();
     }
 
 
     public void clickContinueBtnAftPay(){
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.elementToBeClickable(continueBtnPay));
         driver.findElement(continueBtnPay).click();
     }
 
@@ -170,9 +189,10 @@ public class CheckoutPage {
     }
 
     public String getPageTitle(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //wait.until(ExpectedConditions.presenceOfElementLocated(pageTitle));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.presenceOfElementLocated(pageTitle)));
+        //wait.until(ExpectedConditions.refreshed(ExpectedConditions.presenceOfElementLocated(pageTitle)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfElementLocated(pageTitle)));
         wait.until(d -> !driver.findElement(pageTitle).getText().equals("CHECKOUT"));
         return driver.findElement(pageTitle).getText();
     }

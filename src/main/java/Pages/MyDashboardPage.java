@@ -3,16 +3,17 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DashboardPage {
+public class MyDashboardPage {
     private WebDriver driver;
 
-    By title = By.tagName("h1");
-    By successMsg = By.className("success-msg");
-    By TVMenu = By.linkText("TV");
-    By myWishlistLink = By.xpath("//*[contains(text(), \"My Wishlist\") and not(@title)]");
-    By myOrdersLink = By.xpath("//a[contains(text(), \"My Orders\")]");
+    private By title = By.tagName("h1");
+    private By successMsg = By.className("success-msg");
+    private By TVMenu = By.linkText("TV");
+    private By myWishlistLink = By.xpath("//*[contains(text(), \"My Wishlist\") and not(@title)]");
+    private By myOrdersLink = By.xpath("//a[contains(text(), \"My Orders\")]");
+    private By reOrderLink = By.className("link-reorder");
 
-    public DashboardPage(WebDriver userDriver){
+    public MyDashboardPage(WebDriver userDriver){
         this.driver = userDriver;
     }
 
@@ -41,6 +42,12 @@ public class DashboardPage {
     public MyOrdersPage clickMyOrdersLink(){
         driver.findElement(myOrdersLink).click();
         return new MyOrdersPage(driver);
+    }
+
+
+    public CartPage clickReOrderLink(){
+        driver.findElement(reOrderLink).click();
+        return new CartPage(driver);
     }
 
 

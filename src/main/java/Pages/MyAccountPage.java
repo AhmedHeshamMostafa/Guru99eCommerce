@@ -32,9 +32,9 @@ public class MyAccountPage {
         driver.findElement((passwordTxtBx)).sendKeys(registeredAcc[1]);
     }
 
-public DashboardPage clickLoginBtn(){
+public MyDashboardPage clickLoginBtn(){
         driver.findElement(loginBtn).click();
-        return new DashboardPage(driver);
+        return new MyDashboardPage(driver);
 }
 
 
