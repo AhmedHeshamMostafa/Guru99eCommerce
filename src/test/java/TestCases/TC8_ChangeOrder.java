@@ -5,7 +5,7 @@ import Utils.StringManager;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
-/* TC7 : Verify that you are able to change or reorder a previously added product */
+/* TC8 : Verify that you are able to change or reorder a previously added product */
 public class TC8_ChangeOrder extends BaseTests {
     @Test
     public void testChangeOrder(){

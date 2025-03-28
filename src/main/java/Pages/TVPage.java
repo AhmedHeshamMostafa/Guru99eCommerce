@@ -18,7 +18,7 @@ public class TVPage {
         this.driver = userDriver;
     }
 
-    public WishlistPage addProducttoWishlist(String productName){
+    public WishlistPage addProductToWishlist(String productName){
         switch(productName.toLowerCase()){
             case "lg lcd":
                 productElement = driver.findElement(LGLCD);

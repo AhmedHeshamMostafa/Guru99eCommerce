@@ -14,6 +14,10 @@ public class CartPage {
     private By proceedtoCheckoutBtn = By.cssSelector("[title=\"Proceed to Checkout\"]");
     private By oneProductPrice = By.cssSelector(".product-cart-price .cart-price");
     private By grandTotal = By.cssSelector("strong .price");
+    private By couponTxtBx = By.id("coupon_code");
+    private By applyCouponLink = By.cssSelector("[title=\"Apply\"]");
+
+
 
     public CartPage(WebDriver userDriver){
         this.driver = userDriver;
@@ -49,6 +53,12 @@ public class CartPage {
 
     public String getGrandTotal(){
         return driver.findElement(grandTotal).getText();
+    }
+
+
+    public void enterCouponAndApply(String couponCode){
+        driver.findElement(couponTxtBx).sendKeys(couponCode);
+        driver.findElement(applyCouponLink).click();
     }
 
 

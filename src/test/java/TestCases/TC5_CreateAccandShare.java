@@ -24,7 +24,7 @@ public class TC5_CreateAccandShare extends BaseTests {
         /* Go to TV menu*/
         var tv = dashboard.clickTVLink();
         /* Add LG LCD to your wishlist */
-        var wishlist = tv.addProducttoWishlist("lg lcd");
+        var wishlist = tv.addProductToWishlist("lg lcd");
         /* Click 'SHARE WISHLIST' button */
         var shareWishlist = wishlist.clickShareWishlistBtn();
         /* Enter email and a message */
