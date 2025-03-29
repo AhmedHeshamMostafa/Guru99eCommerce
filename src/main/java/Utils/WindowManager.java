@@ -31,4 +31,7 @@ public class WindowManager {
     public String getCurrentWindowTitle(){
         return driver.getTitle();
     }
+
+
+
 }
